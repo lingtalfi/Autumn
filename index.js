@@ -321,11 +321,14 @@ class Autumn {
 
 
     /**
-     * Replaces the search by the replace in the subject (php style replace).
+     * Replaces all occurrences of the "search" by the "replace" in the "subject" (php style replace).
      */
     replace(search, replace, subject) {
         this._ifDebug(`Autumn.replace`, ...arguments);
-        return subject.replace(search, replace);
+        // https://stackoverflow.com/questions/17820039/js-replacing-all-occurrences-of-string-using-variable
+        search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        var re = new RegExp(search, 'g');
+        return subject.replace(re, replace);
     }
 
 

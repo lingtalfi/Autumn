@@ -513,3 +513,16 @@ And voilà!
 Hope you enjoyed this tutorial.
 
 Have fun with Autumn.
+
+
+
+
+History log
+==============
+- 1.1.0 -- 2020-04-01
+
+    - w.replace now replace all occurrences rather than just the first one
+
+- 1.0.0 -- 2020-04-01
+
+    - initial commit
