@@ -58,7 +58,7 @@ class Autumn {
 
             files.forEach(filePath => {
                 glob(filePath, (err, files) => {
-                    console.log("glob", filePath, err, files);
+                    // console.log("glob", filePath, err, files);
                     files.forEach(fPath => {
                         let stat = fs.lstatSync(fPath);
                         if (true === stat.isFile()) {
