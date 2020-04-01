@@ -1,6 +1,6 @@
 {
   "name": "autumn-wizard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Autumn wizard is a tool to help creating some automation tasks.",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "url": "https://github.com/lingtalfi/Autumn/issues"
   },
   "homepage": "https://github.com/lingtalfi/Autumn#readme",
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
