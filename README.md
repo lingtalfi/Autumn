@@ -1,9 +1,19 @@
-Autumn (wizard)
+Autumn wizard
 ============
 2020-03-30 -> 2020-04-01
 
 
 Autumn is a tool to help creating some automation tasks.
+
+
+Install
+-----------
+
+```bash
+npm i -D autumn-wizard
+```
+
+
 
 
 Why autumn?

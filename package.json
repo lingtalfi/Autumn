@@ -1,18 +1,24 @@
 {
   "name": "autumn-wizard",
-  "version": "1.0.0",
+  "version": "1.0.2",
+  "description": "Autumn wizard is a tool to help creating some automation tasks.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lingtalfi/autumn.git"
+    "url": "git+https://github.com/lingtalfi/Autumn.git"
   },
-  "keywords": ["automation", "task manager"],
+  "keywords": [
+    "automation"
+  ],
   "author": "lingtalfi",
-  "license": "none",
-  "description": "Autumn (wizard) is a tool to help creating some automation tasks.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lingtalfi/Autumn/issues"
+  },
+  "homepage": "https://github.com/lingtalfi/Autumn#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
@@ -27,9 +33,5 @@
     "node.extend": "^2.0.2",
     "tmp": "^0.1.0",
     "uglify-js": "^3.8.1"
-  },
-  "bugs": {
-    "url": "https://github.com/lingtalfi/autumn/issues"
-  },
-  "homepage": "https://github.com/lingtalfi/autumn"
+  }
 }
