@@ -92,7 +92,7 @@ To run this script, read the setup section at the top of this document.
 
 
 ```js
-const Autumn = require("autumn");
+const Autumn = require("autumn-wizard");
 var cssFiles = [
     './src/css/**/*.{css,scss}', // glob paths are allowed, for more details see the node-glob package (https://github.com/isaacs/node-glob).
 ];
@@ -154,7 +154,7 @@ To run this script, read the setup section at the top of this document.
 
 
 ```js
-const Autumn = require("autumn");
+const Autumn = require("autumn-wizard");
 
 
 var jsFiles = [
@@ -220,7 +220,7 @@ To run this script, read the setup section at the top of this document.
 
 
 ```js
-const Autumn = require("autumn");
+const Autumn = require("autumn-wizard");
 
 
 var srcPath = "./js/pluginABC/src/main.js";
@@ -250,7 +250,7 @@ To run this script, read the setup section at the top of this document.
 
 
 ```js
-const Autumn = require("autumn");
+const Autumn = require("autumn-wizard");
 
 
 var tplPaths = [
@@ -328,7 +328,7 @@ To run this script, read the setup section at the top of this document.
 
 
 ```js
-const Autumn = require("autumn");
+const Autumn = require("autumn-wizard");
 
 
 var files = [
@@ -438,7 +438,7 @@ So, let's create our autumn script:
 
 
 ```js
-const Autumn = require("autumn");
+const Autumn = require("autumn-wizard");
 
 
 var useWatch = false;

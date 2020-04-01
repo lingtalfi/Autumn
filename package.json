@@ -1,6 +1,6 @@
 {
   "name": "autumn-wizard",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Autumn wizard is a tool to help creating some automation tasks.",
   "main": "index.js",
   "scripts": {

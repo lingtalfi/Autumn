@@ -7,7 +7,7 @@ const {execSync} = require('child_process');
 
 
 // autumn things
-const utils = require('autumn/utils/utils.js');
+const utils = require('autumn-wizard/utils/utils.js');
 
 
 // third-party plugins
