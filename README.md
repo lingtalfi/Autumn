@@ -32,9 +32,11 @@ I also use handlebars, so Autumn precompiles the templates for me too.
 
 Autumn setup
 -----------
-2020-03-31
+2020-03-31 -> 2020-04-01
 
-In autumn, a task is basically a file. We manage different tasks by creating different files, and call them via the **npm run** command.
+In autumn, a task is basically a file. We manage different tasks by creating different files, and call them directly via the **node** command (i.e. node mytask.js).
+
+A common way to organize autumn scripts is to use the **npm run** command.
 
 So for instance if you just want to minify your css, you create your file **minify.js** (for instance) and put the code in it (follow the tutorial below to know what code exactly to put inside that file),
 then add the minify script in your **package.json**:
@@ -43,7 +45,7 @@ then add the minify script in your **package.json**:
 {
   // ...
   "scripts": {
-    "minify": "minify.js"
+    "minify": "node minify.js"
   },
   // ...
 }
