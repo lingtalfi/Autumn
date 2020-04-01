@@ -31,9 +31,6 @@ const Handlebars = require("handlebars"); // the cli is required so I let this h
  * If you want to have different "tasks", you create
  * a new autumn file per task, and call that task with either node or npm run.
  *
- * My todos when I encounter the use case...
- * Todo: async await with babel
- * Todo: partials with handlebars
  *
  */
 class Autumn {
@@ -50,7 +47,7 @@ class Autumn {
      * and disable it without having to reformat your code.
      */
     watch(files, cb, enable) {
-        this._ifDebug(`Autumn.executeAndRefresh`, ...arguments);
+        this._ifDebug(`Autumn.watch`, ...arguments);
 
         if (false !== enable) {
             // https://stackoverflow.com/questions/12978924/fs-watch-fired-twice-when-i-change-the-watched-file
@@ -319,7 +316,7 @@ class Autumn {
         });
     }
 
-
+    
     /**
      * Replaces all occurrences of the "search" by the "replace" in the "subject" (php style replace).
      */
@@ -330,7 +327,6 @@ class Autumn {
         var re = new RegExp(search, 'g');
         return subject.replace(re, replace);
     }
-
 
     // -----------------------------
     // PRIVATE METHODS
