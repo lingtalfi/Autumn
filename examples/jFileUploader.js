@@ -75,4 +75,18 @@ w.watch([`${baseDir}/src/**/*.{js,scss}`], () => {
     w.precompile(tplPaths, dstPath);
 
 
+    //----------------------------------------
+    // RELOAD THE BROWSER (if we watch the files)
+    //----------------------------------------
+    if (true === useWatch) {
+        w.browserReload("https://jindemo/test-fileuploader.php", {
+            webRootDir: './',
+            https: {
+                key: '/usr/local/etc/httpd/ssl/jindemo.key',
+                cert: '/usr/local/etc/httpd/ssl/jindemo.crt',
+            }
+        });
+    }    
+
+
 }, useWatch);

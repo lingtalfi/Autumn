@@ -21,6 +21,8 @@ const browserify = require("browserify");
 const babelify = require("babelify");
 const UglifyJS = require("uglify-js");
 const Handlebars = require("handlebars"); // the cli is required so I let this here just to be remind me that it's a dependency.
+const browserSync = require("browser-sync");
+
 
 // -----------------------------
 // CLASS
@@ -38,6 +40,8 @@ class Autumn {
         this.options = extend({
             debug: false,
         }, options);
+
+        this.browserSyncInitialized = false;
     }
 
 
@@ -297,6 +301,63 @@ class Autumn {
 
 
     /**
+     * Reloads the browser via browserSync.
+     *
+     * Note: if you are using https, you need to specify the https option.
+     *
+     *
+     * Options:
+     * - https: map containing the following entries:
+     *      - key: the path to the private key
+     *      - cert: the path to the certificate
+     * - webRootDir: string = ".".
+     *      The path to the web root directory.
+     *      This script will create the browser-sync-client.js script (if not found) inside the web root dir.
+     *      This script is required by the browser-sync package to perform correctly.
+     *
+     *
+     */
+    browserReload(url, options) {
+
+
+        /**
+         * Note: as for now I only use https, so this snippet only works with https,
+         * not tested with regular http. (this might change in the future as I encounter
+         * the need to test regular http files).
+         */
+        if (false === this.browserSyncInitialized) {
+
+            var browserSyncOptions = {
+                open: false,
+                /**
+                 Https setup
+                 ------------
+                 For https setup, don't forget to copy the /browser-sync/browser-sync-client.js code (video at 13:25)
+                 https://www.youtube.com/watch?v=NDjE_LCHbuI&list=PLriKzYyLb28lp0z-OMB5EYh0OHaKe91RV&index=8
+                 */
+                proxy: url,
+            };
+            if (options.https) {
+                browserSyncOptions.https = options.https;
+            }
+
+            var webRootDir = options.webRootDir || "./";
+            var browserSyncClientPath = webRootDir + "browser-sync-client.js";
+            if(false === fs.existsSync(browserSyncClientPath)){
+                utils.copy("./node_modules/autumn-wizard/assets/browser-sync-client.js", browserSyncClientPath);
+            }
+
+
+            browserSync.init(browserSyncOptions);
+            this.browserSyncInitialized = true;
+        }
+
+
+        browserSync.reload();
+    }
+
+
+    /**
      * Loops through the given files, and execute the given callback on each of them.
      *
      * Note: the files is an array of [glob paths](https://www.npmjs.com/package/glob#glob-primer).
@@ -316,7 +377,7 @@ class Autumn {
         });
     }
 
-    
+
     /**
      * Replaces all occurrences of the "search" by the "replace" in the "subject" (php style replace).
      */

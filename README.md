@@ -74,8 +74,8 @@ Tutorial
 - [Bundle (and uglify) js files](#bundle-and-uglify-js-files)  
 - [Precompile the handlebars templates](#precompile-the-handlebars-templates)  
 - [Watching the files](#watching-the-files)  
+- [Reloading the browser](#reloading-the-browser)  
 - [A full example](#a-full-example)  
-
 
 
 
@@ -357,6 +357,56 @@ w.watch(files, () => {
 ```
 
 
+Reloading the browser
+------------
+2020-04-01
+
+
+We can use the **browserReload** method to reload the browser automatically.
+
+We usually do that inside the **watch** method.
+
+The current **browserReload** method has only been tested with https (i.e. it might/might not work with http).
+
+Note: the **browser-sync** package is used under the hood.
+
+The following code uses the **browserReload** method to refresh the browser(s) every time the files are changed.
+
+The working url is "https://jindemo/test-fileuploader.php". Notice the arguments passed to the method, they are required
+for https to work properly.
+
+This method will inject a **browser-sync-client.js** script under the specified **webRootDir** directory. This script is required
+by **browser-sync** in order to work properly.
+
+
+To run this script, read the setup section at the top of this document.
+
+
+```js
+const Autumn = require("autumn-wizard");
+
+
+var files = [
+    "./src/**",
+];
+
+const w = new Autumn();
+w.watch(files, () => {
+
+  w.browserReload("https://jindemo/test-fileuploader.php", {
+      webRootDir: './',
+      https: {
+          key: '/usr/local/etc/httpd/ssl/jindemo.key',
+          cert: '/usr/local/etc/httpd/ssl/jindemo.crt',
+      }
+  });
+
+});
+
+```
+
+
+
 
 A full example
 ------------
@@ -503,6 +553,20 @@ w.watch(["./lib/pluginABC/**"], () => {
     w.precompile(tplPaths, dstPath);
 
 
+    //----------------------------------------
+    // RELOAD THE BROWSER (if we watch the files)
+    //----------------------------------------
+    if (true === useWatch) {
+        w.browserReload("https://jindemo/test-fileuploader.php", {
+            webRootDir: './',
+            https: {
+                key: '/usr/local/etc/httpd/ssl/jindemo.key',
+                cert: '/usr/local/etc/httpd/ssl/jindemo.crt',
+            }
+        });
+    }    
+
+
 }, useWatch);
 
 ```
@@ -519,6 +583,10 @@ Have fun with Autumn.
 
 History log
 ==============
+- 1.2.0 -- 2020-04-01
+
+    - add w.browserReload method
+
 - 1.1.0 -- 2020-04-01
 
     - w.replace now replace all occurrences rather than just the first one
