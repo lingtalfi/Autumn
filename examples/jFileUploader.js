@@ -7,7 +7,7 @@ var useWatch = true;
 
 const baseDir = "./libs/universe/Ling/JFileUploader";
 const w = new Autumn();
-w.watch([`${baseDir}/src/**`], () => {
+w.watch([`${baseDir}/src/**/*.{js,scss}`], () => {
 
 
     const useSourceMap = true; // set this to false in production
